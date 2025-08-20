@@ -5,8 +5,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Shells on the Beach 🦀 🏖️ 🐟</title>
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@1.0.1/css/bulma.min.css">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@1.0.4/css/bulma.min.css">
   
   <link rel="stylesheet" href="https://www.trytonlux.ca/css/index.c5e78fd8f79d4d8f4656967dda8581efd5fee211b28dfe133d093c416ce600aa.css" integrity="sha256-xeeP2PedTY9GVpZ92oWB79X&#43;4hGyjf4TPQk8QWzmAKo=" media="screen">
   
@@ -92,32 +91,32 @@
 
 <p>So, I have a file for each of my functions or &ldquo;aliases&rdquo;.</p>
 <p>A simple example is my <code>cdg</code> function:</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fish" data-lang="fish"><span class="line"><span class="cl"><span class="k">function</span> <span class="nf">cdg</span> <span class="na">-d</span> <span class="s2">&#34;Change directory to root of GIT repo&#34;</span>
-</span></span><span class="line"><span class="cl">    <span class="k">cd</span> <span class="o">(</span><span class="nf">git</span> rev-parse <span class="na">--show-toplevel</span><span class="o">)</span>
-</span></span><span class="line"><span class="cl"><span class="k">end</span>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-fish" data-lang="fish"><span style="display:flex;"><span><span style="color:#66d9ef">function</span> <span style="color:#a6e22e">cdg</span> <span style="color:#a6e22e">-d</span> <span style="color:#e6db74">&#34;Change directory to root of GIT repo&#34;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">cd</span> <span style="color:#f92672">(</span><span style="color:#a6e22e">git</span> rev-parse <span style="color:#a6e22e">--show-toplevel</span><span style="color:#f92672">)</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">end</span>
 </span></span></code></pre></div><p>And something more complex, <code>podrun</code>:</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fish" data-lang="fish"><span class="line"><span class="cl"><span class="k">function</span> <span class="nf">podrun</span> <span class="na">-d</span> <span class="s2">&#34;Run container interactively and delete after&#34;</span>
-</span></span><span class="line"><span class="cl">    <span class="k">if</span> <span class="k">count</span> <span class="nv">$argv</span> <span class="o">&gt;</span> /dev/null
-</span></span><span class="line"><span class="cl">        <span class="k">if</span> <span class="k">test</span> <span class="nv">$argv</span><span class="o">[</span><span class="m">2</span><span class="o">]</span>
-</span></span><span class="line"><span class="cl">            <span class="nf">podman</span> run <span class="na">-it</span> <span class="na">--rm</span> <span class="nv">$argv</span><span class="o">[</span><span class="m">1</span><span class="o">]</span>:<span class="nv">$argv</span><span class="o">[</span><span class="m">2</span><span class="o">]</span>
-</span></span><span class="line"><span class="cl">        <span class="k">else</span>
-</span></span><span class="line"><span class="cl">            <span class="nf">podman</span> run <span class="na">-it</span> <span class="na">--rm</span> <span class="nv">$argv</span><span class="o">[</span><span class="m">1</span><span class="o">]</span>
-</span></span><span class="line"><span class="cl">        <span class="k">end</span>
-</span></span><span class="line"><span class="cl">    <span class="k">else</span>
-</span></span><span class="line"><span class="cl">        <span class="k">echo</span> <span class="s2">&#34;podrun IMAGE &lt;TAG&gt;&#34;</span>
-</span></span><span class="line"><span class="cl">    <span class="k">end</span>
-</span></span><span class="line"><span class="cl"><span class="k">end</span>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-fish" data-lang="fish"><span style="display:flex;"><span><span style="color:#66d9ef">function</span> <span style="color:#a6e22e">podrun</span> <span style="color:#a6e22e">-d</span> <span style="color:#e6db74">&#34;Run container interactively and delete after&#34;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">if</span> <span style="color:#66d9ef">count</span> $argv <span style="color:#f92672">&gt;</span> /dev/null
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">if</span> <span style="color:#66d9ef">test</span> $argv<span style="color:#f92672">[</span><span style="color:#ae81ff">2</span><span style="color:#f92672">]</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#a6e22e">podman</span> run <span style="color:#a6e22e">-it</span> <span style="color:#a6e22e">--rm</span> $argv<span style="color:#f92672">[</span><span style="color:#ae81ff">1</span><span style="color:#f92672">]</span>:$argv<span style="color:#f92672">[</span><span style="color:#ae81ff">2</span><span style="color:#f92672">]</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">else</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#a6e22e">podman</span> run <span style="color:#a6e22e">-it</span> <span style="color:#a6e22e">--rm</span> $argv<span style="color:#f92672">[</span><span style="color:#ae81ff">1</span><span style="color:#f92672">]</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">end</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">else</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">echo</span> <span style="color:#e6db74">&#34;podrun IMAGE &lt;TAG&gt;&#34;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">end</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">end</span>
 </span></span></code></pre></div><p>Which also has its own completion file, <code>~/.config/fish/completions/podrun.fish</code>:</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fish" data-lang="fish"><span class="line"><span class="cl"><span class="nf">se</span> base-devel
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="c"># First argument: DISTRO
-</span></span></span><span class="line"><span class="cl"><span class="c"></span><span class="nb">complete</span> <span class="na">-f</span> <span class="na">-c</span> podrun <span class="na">-n</span> <span class="s2">&#34;not __fish_seen_subcommand_from </span><span class="nv">$images</span><span class="s2">&#34;</span> <span class="na">-a</span> <span class="s2">&#34;</span><span class="nv">$images</span><span class="s2">&#34;</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="c"># Optional second argument for distro version.
-</span></span></span><span class="line"><span class="cl"><span class="c"></span><span class="nb">complete</span> <span class="na">-f</span> <span class="na">-c</span> podrun <span class="na">-n</span> <span class="s2">&#34;__fish_seen_subcommand_from fedora&#34;</span> <span class="na">-a</span> <span class="s2">&#34;</span><span class="nv">$fedora</span><span class="s2">&#34;</span>
-</span></span><span class="line"><span class="cl"><span class="nb">complete</span> <span class="na">-f</span> <span class="na">-c</span> podrun <span class="na">-n</span> <span class="s2">&#34;__fish_seen_subcommand_from ubuntu&#34;</span> <span class="na">-a</span> <span class="s2">&#34;</span><span class="nv">$ubuntu</span><span class="s2">&#34;</span>
-</span></span><span class="line"><span class="cl"><span class="nb">complete</span> <span class="na">-f</span> <span class="na">-c</span> podrun <span class="na">-n</span> <span class="s2">&#34;__fish_seen_subcommand_from centos &#34;</span> <span class="na">-a</span> <span class="s2">&#34;</span><span class="nv">$centos</span><span class="s2">&#34;</span>
-</span></span><span class="line"><span class="cl"><span class="nb">complete</span> <span class="na">-f</span> <span class="na">-c</span> podrun <span class="na">-n</span> <span class="s2">&#34;__fish_seen_subcommand_from archlinux&#34;</span> <span class="na">-a</span> <span class="s2">&#34;</span><span class="nv">$archlinux</span><span class="s2">&#34;</span>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-fish" data-lang="fish"><span style="display:flex;"><span><span style="color:#a6e22e">se</span> base-devel
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># First argument: DISTRO
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>complete <span style="color:#a6e22e">-f</span> <span style="color:#a6e22e">-c</span> podrun <span style="color:#a6e22e">-n</span> <span style="color:#e6db74">&#34;not __fish_seen_subcommand_from </span>$images<span style="color:#e6db74">&#34;</span> <span style="color:#a6e22e">-a</span> <span style="color:#e6db74">&#34;</span>$images<span style="color:#e6db74">&#34;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Optional second argument for distro version.
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>complete <span style="color:#a6e22e">-f</span> <span style="color:#a6e22e">-c</span> podrun <span style="color:#a6e22e">-n</span> <span style="color:#e6db74">&#34;__fish_seen_subcommand_from fedora&#34;</span> <span style="color:#a6e22e">-a</span> <span style="color:#e6db74">&#34;</span>$fedora<span style="color:#e6db74">&#34;</span>
+</span></span><span style="display:flex;"><span>complete <span style="color:#a6e22e">-f</span> <span style="color:#a6e22e">-c</span> podrun <span style="color:#a6e22e">-n</span> <span style="color:#e6db74">&#34;__fish_seen_subcommand_from ubuntu&#34;</span> <span style="color:#a6e22e">-a</span> <span style="color:#e6db74">&#34;</span>$ubuntu<span style="color:#e6db74">&#34;</span>
+</span></span><span style="display:flex;"><span>complete <span style="color:#a6e22e">-f</span> <span style="color:#a6e22e">-c</span> podrun <span style="color:#a6e22e">-n</span> <span style="color:#e6db74">&#34;__fish_seen_subcommand_from centos &#34;</span> <span style="color:#a6e22e">-a</span> <span style="color:#e6db74">&#34;</span>$centos<span style="color:#e6db74">&#34;</span>
+</span></span><span style="display:flex;"><span>complete <span style="color:#a6e22e">-f</span> <span style="color:#a6e22e">-c</span> podrun <span style="color:#a6e22e">-n</span> <span style="color:#e6db74">&#34;__fish_seen_subcommand_from archlinux&#34;</span> <span style="color:#a6e22e">-a</span> <span style="color:#e6db74">&#34;</span>$archlinux<span style="color:#e6db74">&#34;</span>
 </span></span></code></pre></div><h1 id="starship"><a href="https://starship.rs/">Starship</a></h1>
 <p>Long before Fish, I played with building my own shell prompt for Bash — both in Bash itself and Python. It was something fun to build, and I liked the idea of modular powerline-type prompts, but prefered the simple look of just text, without the coloured background connecting blocks.</p>
 <p>Eventually I found the Starship project. It was really fast, has modular configuration, and the out-of-the-box design was exaclty what I liked: simple text without background colors and a newline between prompt and user input.</p>
@@ -128,8 +127,8 @@
 <h1 id="pydf"><a href="https://github.com/k4rtik/pydf-pypi">pydf</a></h1>
 <p><code>pydf</code> is a <code>df</code> clone written in Python. I like the output it gives with ascii bar graphs and that certain filesystems are ignored by default (/dev, /run, tmpfs).</p>
 <p>An example of the output:</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">Filesystem      Size Used Avail Use%                                         Mounted on
-</span></span><span class="line"><span class="cl">/dev/nvme0n1p2  100G 60G    40G 60.0 <span class="o">[</span><span class="c1">#######################..............] /</span>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>Filesystem      Size Used Avail Use%                                         Mounted on
+</span></span><span style="display:flex;"><span>/dev/nvme0n1p2  100G 60G    40G 60.0 <span style="color:#f92672">[</span><span style="color:#75715e">#######################..............] /</span>
 </span></span></code></pre></div><h1 id="bat"><a href="https://github.com/sharkdp/bat">Bat</a></h1>
 <p>I use <code>bat</code> as a replacment for <code>less</code> to provide syntaxt highlighting to files, and its Git support is nice.</p>
 <p><img src="/images/Shells-on-the-Beach-Bat.png#border#center" alt="Bat Screenshot"></p>

@@ -5,8 +5,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Porting Hiritsu to Rust</title>
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@1.0.1/css/bulma.min.css">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@1.0.4/css/bulma.min.css">
   
   <link rel="stylesheet" href="https://www.trytonlux.ca/css/index.c5e78fd8f79d4d8f4656967dda8581efd5fee211b28dfe133d093c416ce600aa.css" integrity="sha256-xeeP2PedTY9GVpZ92oWB79X&#43;4hGyjf4TPQk8QWzmAKo=" media="screen">
   
@@ -65,13 +64,13 @@
   <div id="blog-content" class="container content">
     <p>Hiritsu is a tool I developed to get the resolution and aspect ratio of images. It can also be used to rename an input image to include those attributes in the filename.</p>
 <p>An example of this in action:</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">$ hiritsu wallpaper.jpg
-</span></span><span class="line"><span class="cl">Width:  <span class="m">1920</span>
-</span></span><span class="line"><span class="cl">Height: <span class="m">1080</span>
-</span></span><span class="line"><span class="cl">Ratio:  16:9
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">$ hiritsu --rename wallpaper.jpg
-</span></span><span class="line"><span class="cl">wallpaper <span class="o">(</span>1920x1080<span class="o">)</span> <span class="o">[</span>16:9<span class="o">]</span>.jpg
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>$ hiritsu wallpaper.jpg
+</span></span><span style="display:flex;"><span>Width:  <span style="color:#ae81ff">1920</span>
+</span></span><span style="display:flex;"><span>Height: <span style="color:#ae81ff">1080</span>
+</span></span><span style="display:flex;"><span>Ratio:  16:9
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>$ hiritsu --rename wallpaper.jpg
+</span></span><span style="display:flex;"><span>wallpaper <span style="color:#f92672">(</span>1920x1080<span style="color:#f92672">)</span> <span style="color:#f92672">[</span>16:9<span style="color:#f92672">]</span>.jpg
 </span></span></code></pre></div><p>The Python version can be found <a href="https://github.com/tryton-vanmeer/Hiritsu/blob/python/hiritsu">here</a>, and the Rust port <a href="https://github.com/tryton-vanmeer/Hiritsu/blob/master/src/main.rs">here</a></p>
 <h1 id="benchmarking">Benchmarking</h1>
 <p>For this benchmark I used this <a href="https://wallhaven.cc/w/dgzj9o">wallpaper</a> from Wallhaven.cc. I ran the commands in Bash 5.0.016-1 and used the <code>time</code> command.</p>

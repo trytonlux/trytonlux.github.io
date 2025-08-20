@@ -5,8 +5,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Arch Linux with GNOME on the Surface Pro 3</title>
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@1.0.1/css/bulma.min.css">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@1.0.4/css/bulma.min.css">
   
   <link rel="stylesheet" href="https://www.trytonlux.ca/css/index.c5e78fd8f79d4d8f4656967dda8581efd5fee211b28dfe133d093c416ce600aa.css" integrity="sha256-xeeP2PedTY9GVpZ92oWB79X&#43;4hGyjf4TPQk8QWzmAKo=" media="screen">
   
@@ -79,14 +78,14 @@
 <h2 id="display">Display</h2>
 <p>A handy feature since GNOME 3.36 (albeit experimental and only in Wayland) is fractional scaling.</p>
 <p>It can easily be enabled with the following command:</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fish" data-lang="fish"><span class="line"><span class="cl"><span class="nf">gsettings</span> set <span class="nv">org</span>.gnome.mutter experimental-features <span class="s2">&#34;[&#39;scale-monitor-framebuffer&#39;]&#34;</span>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-fish" data-lang="fish"><span style="display:flex;"><span><span style="color:#a6e22e">gsettings</span> set org.gnome.mutter experimental-features <span style="color:#e6db74">&#34;[&#39;scale-monitor-framebuffer&#39;]&#34;</span>
 </span></span></code></pre></div><p>For the 2160x1440 screen on the SP3, I personally find a 125% scaling really nice.</p>
 <h2 id="bluetooth">Bluetooth</h2>
 <p>If you want bluetooth available on boot, enable it, since it may not be already.</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">systemctl <span class="nb">enable</span> --now bluetooth
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>systemctl enable --now bluetooth
 </span></span></code></pre></div><h2 id="autorotation">Autorotation</h2>
 <p>Only a single package needs to be installed to enable screen rotation when the surface is rotated.</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">pacman -S iio-sensor-proxy
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>pacman -S iio-sensor-proxy
 </span></span></code></pre></div><p>GNOME will now display a button for (un)locking screen rotation.</p>
 <p><img src="/images/Screenshot-SP3-Screen-Rotate-Lock.png" alt="SP3 Screen Rotate Lock"></p>
 <h1 id="touchscreen">Touchscreen</h1>
