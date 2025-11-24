@@ -66,7 +66,7 @@
 <h2 id="packages">Packages</h2>
 <p>Install the following packages:</p>
 <h3 id="arch-linux">Arch Linux</h3>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>$ sudo pacman -S pam-u2f yubikey-manager libfido2
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">$ sudo pacman -S pam-u2f yubikey-manager libfido2
 </span></span></code></pre></div>
 
 
@@ -91,7 +91,7 @@
 </article>
 
 <h3 id="fedora">Fedora</h3>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>$ sudo dnf install pam-u2f yubikey-manager libfido2 pamu2fcfg
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">$ sudo dnf install pam-u2f yubikey-manager libfido2 pamu2fcfg
 </span></span></code></pre></div><h2 id="pam">PAM</h2>
 <p>Create <code>/etc/u2f_keys</code> and append the output of <code>pamu2fcfg</code> to it.</p>
 <p><code>pamu2fcfg -n</code> will create the same output without a username. This is usefull for appending additional keys.</p>
@@ -99,12 +99,12 @@
 <p>This adds the YubiKey as an auth method. Sufficient means that only the key is needed. If the key is removed, password auth will be used as normal.</p>
 <h2 id="ssh">SSH</h2>
 <p>Create an SSH key like normal, but specify the <code>ecdsa-sk</code> key type (sk stands for security key).</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>$ ssh-keygen -t ecdsa-sk
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">$ ssh-keygen -t ecdsa-sk
 </span></span></code></pre></div><p>Then add the key to the remote machine as usual.</p>
 <h2 id="disable-otp-on-touch">Disable OTP on Touch</h2>
 <p>When the YubiKey is touched, it acts as a keyboard outputing an OPT and sending [ENTER].</p>
 <p>To disable it:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>$ ykman config usb --disable otp
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">$ ykman config usb --disable otp
 </span></span></code></pre></div>
   </div>
 </section>

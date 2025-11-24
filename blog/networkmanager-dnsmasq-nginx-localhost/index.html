@@ -66,130 +66,130 @@
 <h1 id="forward-dns-requests-to-localhost">Forward DNS requests to localhost</h1>
 <p>Create a dnsmasq conf:</p>
 <p><strong>/etc/NetworkManager/dnsmasq.d/lh.conf</strong></p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-ini" data-lang="ini"><span style="display:flex;"><span><span style="color:#a6e22e">address</span><span style="color:#f92672">=</span><span style="color:#e6db74">/lh/127.0.0.1</span>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-ini" data-lang="ini"><span class="line"><span class="cl"><span class="na">address</span><span class="o">=</span><span class="s">/lh/127.0.0.1</span>
 </span></span></code></pre></div><p>Accessing <strong>domain</strong>.lh will be forwarded to localhost for NGINX to handle.</p>
 <h1 id="setup-a-trusted-ssl-certificate">Setup a Trusted SSL Certificate</h1>
 <p>I use a self-signed cert so that my localhost pages get a nice <strong>Connection secure</strong> padlock.</p>
 <p>Create <code>/etc/nginx/ssl</code></p>
 <h2 id="openssl-config">OpenSSL Config</h2>
 <p><strong>lh.cnf</strong></p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-ini" data-lang="ini"><span style="display:flex;"><span><span style="color:#66d9ef">[req]</span>
-</span></span><span style="display:flex;"><span><span style="color:#a6e22e">default_bits</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">2048</span>
-</span></span><span style="display:flex;"><span><span style="color:#a6e22e">distinguished_name</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">req_distinguished_name</span>
-</span></span><span style="display:flex;"><span><span style="color:#a6e22e">prompt</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">no</span>
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#66d9ef">[req_distinguished_name]</span>
-</span></span><span style="display:flex;"><span><span style="color:#a6e22e">C</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">CA</span>
-</span></span><span style="display:flex;"><span><span style="color:#a6e22e">ST</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">Ontario</span>
-</span></span><span style="display:flex;"><span><span style="color:#a6e22e">L</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">Ottawa</span>
-</span></span><span style="display:flex;"><span><span style="color:#a6e22e">O</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">Localhost CA</span>
-</span></span><span style="display:flex;"><span><span style="color:#a6e22e">OU</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">Development</span>
-</span></span><span style="display:flex;"><span><span style="color:#a6e22e">CN</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">lh</span>
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#66d9ef">[v3_ca]</span>
-</span></span><span style="display:flex;"><span><span style="color:#a6e22e">subjectAltName</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">@alt_names</span>
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#66d9ef">[alt_names]</span>
-</span></span><span style="display:flex;"><span><span style="color:#a6e22e">DNS.1</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">hugo.lh</span>
-</span></span><span style="display:flex;"><span><span style="color:#a6e22e">DNS.2</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">startpage.lh</span>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-ini" data-lang="ini"><span class="line"><span class="cl"><span class="k">[req]</span>
+</span></span><span class="line"><span class="cl"><span class="na">default_bits</span> <span class="o">=</span> <span class="s">2048</span>
+</span></span><span class="line"><span class="cl"><span class="na">distinguished_name</span> <span class="o">=</span> <span class="s">req_distinguished_name</span>
+</span></span><span class="line"><span class="cl"><span class="na">prompt</span> <span class="o">=</span> <span class="s">no</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">[req_distinguished_name]</span>
+</span></span><span class="line"><span class="cl"><span class="na">C</span> <span class="o">=</span> <span class="s">CA</span>
+</span></span><span class="line"><span class="cl"><span class="na">ST</span> <span class="o">=</span> <span class="s">Ontario</span>
+</span></span><span class="line"><span class="cl"><span class="na">L</span> <span class="o">=</span> <span class="s">Ottawa</span>
+</span></span><span class="line"><span class="cl"><span class="na">O</span> <span class="o">=</span> <span class="s">Localhost CA</span>
+</span></span><span class="line"><span class="cl"><span class="na">OU</span> <span class="o">=</span> <span class="s">Development</span>
+</span></span><span class="line"><span class="cl"><span class="na">CN</span> <span class="o">=</span> <span class="s">lh</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">[v3_ca]</span>
+</span></span><span class="line"><span class="cl"><span class="na">subjectAltName</span> <span class="o">=</span> <span class="s">@alt_names</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">[alt_names]</span>
+</span></span><span class="line"><span class="cl"><span class="na">DNS.1</span> <span class="o">=</span> <span class="s">hugo.lh</span>
+</span></span><span class="line"><span class="cl"><span class="na">DNS.2</span> <span class="o">=</span> <span class="s">startpage.lh</span>
 </span></span></code></pre></div><p>This alt_names contains all the subdomains you&rsquo;d like to use and be valid for this cert.</p>
 <h2 id="root-certification-authority">Root Certification Authority</h2>
 <p>I create a RootCA for signing my cert. This RootCA can later be added to the system so that Firefox automatically trusts the cert without having to accept it manually.</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span><span style="color:#75715e"># Create the private key</span>
-</span></span><span style="display:flex;"><span>$ sudo openssl genrsa -out /etc/nginx/ssl/rootCA.key <span style="color:#ae81ff">2048</span>
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#75715e"># Create the PEM cert</span>
-</span></span><span style="display:flex;"><span>$ sudo openssl req -x509 -new -nodes -key /etc/nginx/ssl/rootCA.key -sha256 -days <span style="color:#ae81ff">3650</span> -out /etc/nginx/ssl/rootCA.pem
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="c1"># Create the private key</span>
+</span></span><span class="line"><span class="cl">$ sudo openssl genrsa -out /etc/nginx/ssl/rootCA.key <span class="m">2048</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># Create the PEM cert</span>
+</span></span><span class="line"><span class="cl">$ sudo openssl req -x509 -new -nodes -key /etc/nginx/ssl/rootCA.key -sha256 -days <span class="m">3650</span> -out /etc/nginx/ssl/rootCA.pem
 </span></span></code></pre></div><h2 id="ssl-certificates">SSL Certificates</h2>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span><span style="color:#75715e"># Create private key and CSR key</span>
-</span></span><span style="display:flex;"><span>$ sudo openssl req -new -sha256 -nodes -newkey rsa:2048 -keyout /etc/nginx/ssl/lh.key -out /etc/nginx/ssl/ lh.csr -config lh.cnf
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#75715e"># Create cert using rootCA</span>
-</span></span><span style="display:flex;"><span>$ sudo openssl x509 -req -in /etc/nginx/ssl/lh.csr -CA /etc/nginx/ssl/rootCA.pem -CAkey /etc/nginx/ssl/rootCA.key -CAcreateserial -out /etc/nginx/ssl/lh.crt -sha256 -days <span style="color:#ae81ff">3650</span> -extfile lh.cnf -extensions v3_ca
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="c1"># Create private key and CSR key</span>
+</span></span><span class="line"><span class="cl">$ sudo openssl req -new -sha256 -nodes -newkey rsa:2048 -keyout /etc/nginx/ssl/lh.key -out /etc/nginx/ssl/ lh.csr -config lh.cnf
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># Create cert using rootCA</span>
+</span></span><span class="line"><span class="cl">$ sudo openssl x509 -req -in /etc/nginx/ssl/lh.csr -CA /etc/nginx/ssl/rootCA.pem -CAkey /etc/nginx/ssl/rootCA.key -CAcreateserial -out /etc/nginx/ssl/lh.crt -sha256 -days <span class="m">3650</span> -extfile lh.cnf -extensions v3_ca
 </span></span></code></pre></div><h2 id="adding-trusted-ca-to-system">Adding Trusted CA to System</h2>
 <p>On Arch Linux or Fedora, p11-kit can be used to add the RootCA system-wide.</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>$ sudo trust anchor --store /etc/nginx/ssl/rootCA.pem
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">$ sudo trust anchor --store /etc/nginx/ssl/rootCA.pem
 </span></span></code></pre></div><h1 id="nginx">NGINX</h1>
 <p>Create the initial NGINX config.</p>
 <p><strong>/etc/nginx/nginx.conf</strong></p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-nginx" data-lang="nginx"><span style="display:flex;"><span><span style="color:#66d9ef">worker_processes</span> <span style="color:#ae81ff">1</span>;
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#66d9ef">events</span>
-</span></span><span style="display:flex;"><span>{
-</span></span><span style="display:flex;"><span>    <span style="color:#f92672">worker_connections</span> <span style="color:#ae81ff">1024</span>;
-</span></span><span style="display:flex;"><span>}
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#66d9ef">http</span>
-</span></span><span style="display:flex;"><span>{
-</span></span><span style="display:flex;"><span>    <span style="color:#f92672">include</span> <span style="color:#e6db74">mime.types</span>;
-</span></span><span style="display:flex;"><span>    <span style="color:#f92672">default_type</span> <span style="color:#e6db74">application/octet-stream</span>;
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>    <span style="color:#f92672">sendfile</span> <span style="color:#66d9ef">on</span>;
-</span></span><span style="display:flex;"><span>    <span style="color:#f92672">keepalive_timeout</span> <span style="color:#ae81ff">65</span>;
-</span></span><span style="display:flex;"><span>}
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-nginx" data-lang="nginx"><span class="line"><span class="cl"><span class="k">worker_processes</span> <span class="mi">1</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">events</span>
+</span></span><span class="line"><span class="cl"><span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="kn">worker_connections</span> <span class="mi">1024</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">http</span>
+</span></span><span class="line"><span class="cl"><span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="kn">include</span> <span class="s">mime.types</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="kn">default_type</span> <span class="s">application/octet-stream</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="kn">sendfile</span> <span class="no">on</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="kn">keepalive_timeout</span> <span class="mi">65</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
 </span></span></code></pre></div><h2 id="ssl">SSL</h2>
 <p>Configure NGINX to use SSL and redirect http → https.</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-nginx" data-lang="nginx"><span style="display:flex;"><span><span style="color:#66d9ef">http</span>
-</span></span><span style="display:flex;"><span>{
-</span></span><span style="display:flex;"><span>    <span style="color:#f92672">...</span>
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>    <span style="color:#e6db74">ssl_certificate</span> <span style="color:#e6db74">ssl/lh.crt</span>;
-</span></span><span style="display:flex;"><span>    <span style="color:#f92672">ssl_certificate_key</span> <span style="color:#e6db74">ssl/lh.key</span>;
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>    <span style="color:#f92672">server</span>
-</span></span><span style="display:flex;"><span>    {
-</span></span><span style="display:flex;"><span>        <span style="color:#f92672">listen</span> <span style="color:#ae81ff">80</span>;
-</span></span><span style="display:flex;"><span>        <span style="color:#f92672">server_name</span> <span style="color:#e6db74">_</span>;
-</span></span><span style="display:flex;"><span>        <span style="color:#f92672">return</span> <span style="color:#ae81ff">301</span> <span style="color:#e6db74">https://</span>$host$request_uri;
-</span></span><span style="display:flex;"><span>    }
-</span></span><span style="display:flex;"><span>}
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-nginx" data-lang="nginx"><span class="line"><span class="cl"><span class="k">http</span>
+</span></span><span class="line"><span class="cl"><span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="kn">...</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="s">ssl_certificate</span> <span class="s">ssl/lh.crt</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="kn">ssl_certificate_key</span> <span class="s">ssl/lh.key</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="kn">server</span>
+</span></span><span class="line"><span class="cl">    <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="kn">listen</span> <span class="mi">80</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">        <span class="kn">server_name</span> <span class="s">_</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">        <span class="kn">return</span> <span class="mi">301</span> <span class="s">https://</span><span class="nv">$host$request_uri</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
 </span></span></code></pre></div><h2 id="proxy-config">Proxy Config</h2>
 <p>Common proxy config to be included.</p>
 <p><strong>/etc/nginx/proxy.conf</strong></p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-nginx" data-lang="nginx"><span style="display:flex;"><span><span style="color:#66d9ef">proxy_set_header</span> <span style="color:#e6db74">Host</span> $http_host;
-</span></span><span style="display:flex;"><span><span style="color:#66d9ef">proxy_set_header</span> <span style="color:#e6db74">X-Real-IP</span> $remote_addr;
-</span></span><span style="display:flex;"><span><span style="color:#66d9ef">proxy_set_header</span> <span style="color:#e6db74">X-Forwarded-For</span> $proxy_add_x_forwarded_for;
-</span></span><span style="display:flex;"><span><span style="color:#66d9ef">proxy_set_header</span> <span style="color:#e6db74">X-Forwarded-Proto</span> $scheme;
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-nginx" data-lang="nginx"><span class="line"><span class="cl"><span class="k">proxy_set_header</span> <span class="s">Host</span> <span class="nv">$http_host</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="k">proxy_set_header</span> <span class="s">X-Real-IP</span> <span class="nv">$remote_addr</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="k">proxy_set_header</span> <span class="s">X-Forwarded-For</span> <span class="nv">$proxy_add_x_forwarded_for</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="k">proxy_set_header</span> <span class="s">X-Forwarded-Proto</span> <span class="nv">$scheme</span><span class="p">;</span>
 </span></span></code></pre></div><h2 id="startpage">Startpage</h2>
 <p>I use NGINX to host my Startpage locally at startpage.lh.</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-nginx" data-lang="nginx"><span style="display:flex;"><span><span style="color:#66d9ef">http</span>
-</span></span><span style="display:flex;"><span>{
-</span></span><span style="display:flex;"><span>    <span style="color:#f92672">...</span>
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>    <span style="color:#e6db74">server</span>
-</span></span><span style="display:flex;"><span>    {
-</span></span><span style="display:flex;"><span>        <span style="color:#f92672">listen</span> <span style="color:#ae81ff">443</span> <span style="color:#e6db74">ssl</span>;
-</span></span><span style="display:flex;"><span>        <span style="color:#f92672">server_name</span> <span style="color:#e6db74">startpage.lh</span>;
-</span></span><span style="display:flex;"><span>        <span style="color:#f92672">root</span> <span style="color:#e6db74">/home/tryton-vanmeer/Code/Startpage/</span>;
-</span></span><span style="display:flex;"><span>    }
-</span></span><span style="display:flex;"><span>}
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-nginx" data-lang="nginx"><span class="line"><span class="cl"><span class="k">http</span>
+</span></span><span class="line"><span class="cl"><span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="kn">...</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="s">server</span>
+</span></span><span class="line"><span class="cl">    <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="kn">listen</span> <span class="mi">443</span> <span class="s">ssl</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">        <span class="kn">server_name</span> <span class="s">startpage.lh</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">        <span class="kn">root</span> <span class="s">/home/tryton-vanmeer/Code/Startpage/</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
 </span></span></code></pre></div><h2 id="hugo">Hugo</h2>
 <p>I use hugo.lh to access hugo&rsquo;s server while developing hugo websites.</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-nginx" data-lang="nginx"><span style="display:flex;"><span><span style="color:#66d9ef">http</span>
-</span></span><span style="display:flex;"><span>{
-</span></span><span style="display:flex;"><span>    <span style="color:#f92672">...</span>
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>    <span style="color:#e6db74">server</span>
-</span></span><span style="display:flex;"><span>    {
-</span></span><span style="display:flex;"><span>        <span style="color:#f92672">listen</span> <span style="color:#ae81ff">443</span> <span style="color:#e6db74">ssl</span>;
-</span></span><span style="display:flex;"><span>        <span style="color:#f92672">server_name</span> <span style="color:#e6db74">hugo.lh</span>;
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>        <span style="color:#f92672">location</span> <span style="color:#e6db74">/</span>
-</span></span><span style="display:flex;"><span>        {
-</span></span><span style="display:flex;"><span>            <span style="color:#f92672">proxy_pass</span> <span style="color:#e6db74">http://localhost:1313</span>;
-</span></span><span style="display:flex;"><span>            <span style="color:#f92672">include</span> <span style="color:#e6db74">proxy.conf</span>;
-</span></span><span style="display:flex;"><span>        }
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>        <span style="color:#f92672">location</span> <span style="color:#e6db74">/livereload</span>
-</span></span><span style="display:flex;"><span>        {
-</span></span><span style="display:flex;"><span>            <span style="color:#f92672">proxy_pass</span> <span style="color:#e6db74">http://localhost:1313</span>;
-</span></span><span style="display:flex;"><span>            <span style="color:#f92672">include</span> <span style="color:#e6db74">proxy.conf</span>;
-</span></span><span style="display:flex;"><span>            <span style="color:#f92672">proxy_http_version</span> <span style="color:#ae81ff">1</span><span style="color:#e6db74">.1</span>;
-</span></span><span style="display:flex;"><span>            <span style="color:#f92672">proxy_set_header</span> <span style="color:#e6db74">Upgrade</span> $http_upgrade;
-</span></span><span style="display:flex;"><span>            <span style="color:#f92672">proxy_set_header</span> <span style="color:#e6db74">Connection</span> <span style="color:#e6db74">&#34;Upgrade&#34;</span>;
-</span></span><span style="display:flex;"><span>        }
-</span></span><span style="display:flex;"><span>    }
-</span></span><span style="display:flex;"><span>}
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-nginx" data-lang="nginx"><span class="line"><span class="cl"><span class="k">http</span>
+</span></span><span class="line"><span class="cl"><span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="kn">...</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="s">server</span>
+</span></span><span class="line"><span class="cl">    <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="kn">listen</span> <span class="mi">443</span> <span class="s">ssl</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">        <span class="kn">server_name</span> <span class="s">hugo.lh</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">        <span class="kn">location</span> <span class="s">/</span>
+</span></span><span class="line"><span class="cl">        <span class="p">{</span>
+</span></span><span class="line"><span class="cl">            <span class="kn">proxy_pass</span> <span class="s">http://localhost:1313</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">            <span class="kn">include</span> <span class="s">proxy.conf</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">        <span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">        <span class="kn">location</span> <span class="s">/livereload</span>
+</span></span><span class="line"><span class="cl">        <span class="p">{</span>
+</span></span><span class="line"><span class="cl">            <span class="kn">proxy_pass</span> <span class="s">http://localhost:1313</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">            <span class="kn">include</span> <span class="s">proxy.conf</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">            <span class="kn">proxy_http_version</span> <span class="mi">1</span><span class="s">.1</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">            <span class="kn">proxy_set_header</span> <span class="s">Upgrade</span> <span class="nv">$http_upgrade</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">            <span class="kn">proxy_set_header</span> <span class="s">Connection</span> <span class="s">&#34;Upgrade&#34;</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">        <span class="p">}</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
 </span></span></code></pre></div><p>And I run hugo as such: <code>hugo serve --baseURL http://hugo.lh --appendPort=false --liveReloadPort=443 --buildDrafts</code></p>
 
   </div>

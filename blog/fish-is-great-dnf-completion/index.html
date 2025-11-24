@@ -71,35 +71,35 @@
 <h1 id="dnf-completion">DNF Completion</h1>
 <p>Recently I&rsquo;ve been giving Fedora a try and quite enjoy it. The only real complaint I have had is how package names are displayed in some cases when using DNF.</p>
 <p>For example when searching:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>$ dnf search dconf
-</span></span><span style="display:flex;"><span><span style="color:#f92672">=====</span> Name Exactly Matched: dconf <span style="color:#f92672">=====</span>
-</span></span><span style="display:flex;"><span>dconf.x86_64 : A configuration system
-</span></span><span style="display:flex;"><span>dconf.i686 : A configuration system
-</span></span><span style="display:flex;"><span><span style="color:#f92672">=====</span> Name &amp; Summary Matched: dconf
-</span></span><span style="display:flex;"><span>dconf-editor.x86_64 : Configuration editor <span style="color:#66d9ef">for</span> dconf
-</span></span><span style="display:flex;"><span>dconf-devel.i686 : Header files and libraries <span style="color:#66d9ef">for</span> dconf development
-</span></span><span style="display:flex;"><span>dconf-devel.x86_64 : Header files and libraries <span style="color:#66d9ef">for</span> dconf development
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">$ dnf search <span class="nv">dconf</span>
+</span></span><span class="line"><span class="cl"><span class="o">=====</span> Name Exactly Matched: <span class="nv">dconf</span> <span class="o">=====</span>
+</span></span><span class="line"><span class="cl">dconf.x86_64 : A configuration system
+</span></span><span class="line"><span class="cl">dconf.i686 : A configuration <span class="nv">system</span>
+</span></span><span class="line"><span class="cl"><span class="o">=====</span> Name <span class="p">&amp;</span> Summary Matched: dconf
+</span></span><span class="line"><span class="cl">dconf-editor.x86_64 : Configuration editor <span class="k">for</span> dconf
+</span></span><span class="line"><span class="cl">dconf-devel.i686 : Header files and libraries <span class="k">for</span> dconf development
+</span></span><span class="line"><span class="cl">dconf-devel.x86_64 : Header files and libraries <span class="k">for</span> dconf development
 </span></span></code></pre></div><p>And when tab completing with Fish:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>$ dnf install dconf&lt;TAB&gt;&lt;TAB&gt;
-</span></span><span style="display:flex;"><span>dconf-0.36.0-1.fc32.i686        dconf-devel-0.36.0-1.fc32.x86_64
-</span></span><span style="display:flex;"><span>dconf-0.36.0-1.fc32.x86_64      dconf-editor-3.36.0-1.fc32.x86_64
-</span></span><span style="display:flex;"><span>dconf-devel-0.36.0-1.fc32.i686
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">$ dnf install dconf&lt;TAB&gt;&lt;TAB&gt;
+</span></span><span class="line"><span class="cl">dconf-0.36.0-1.fc32.i686        dconf-devel-0.36.0-1.fc32.x86_64
+</span></span><span class="line"><span class="cl">dconf-0.36.0-1.fc32.x86_64      dconf-editor-3.36.0-1.fc32.x86_64
+</span></span><span class="line"><span class="cl">dconf-devel-0.36.0-1.fc32.i686
 </span></span></code></pre></div><p>Of course this doesn&rsquo;t break any functionality and is only aesthetic. But as an Arch Linux user it does hurt me on a minimalist level. I don&rsquo;t need to see metadata like the Fedora version or even the version of the package. I especially don&rsquo;t need to see that I&rsquo;m installing an x86_64 package on my 64bit install of Linux.</p>
 <p>So I looked into the fish completion for DNF. And here is the relevent part:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-fish" data-lang="fish"><span style="display:flex;"><span><span style="color:#66d9ef">function</span> <span style="color:#a6e22e">__dnf_list_available_packages</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">if</span> type <span style="color:#a6e22e">-q</span> sqlite3
-</span></span><span style="display:flex;"><span>        <span style="color:#a6e22e">sqlite3</span> /var/cache/dnf/packages.db <span style="color:#e6db74">&#34;SELECT pkg FROM available WHERE pkg LIKE \&#34;</span>$cur<span style="color:#e6db74">%\&#34;&#34;</span> <span style="color:#ae81ff">2</span><span style="color:#f92672">&gt;</span>/dev/null
-</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">end</span>
-</span></span><span style="display:flex;"><span><span style="color:#66d9ef">end</span>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fish" data-lang="fish"><span class="line"><span class="cl"><span class="k">function</span> <span class="nf">__dnf_list_available_packages</span>
+</span></span><span class="line"><span class="cl">    <span class="k">if</span> <span class="nb">type</span> <span class="na">-q</span> sqlite3
+</span></span><span class="line"><span class="cl">        <span class="nf">sqlite3</span> /var/cache/dnf/packages.db <span class="s2">&#34;SELECT pkg FROM available WHERE pkg LIKE \&#34;</span><span class="nv">$cur</span><span class="s2">%\&#34;&#34;</span> <span class="m">2</span><span class="o">&gt;</span>/dev/null
+</span></span><span class="line"><span class="cl">    <span class="k">end</span>
+</span></span><span class="line"><span class="cl"><span class="k">end</span>
 </span></span></code></pre></div><p>The ZSH completion is similar and it makes sense. The SQL query is really fast. But it returns the undesired results above.</p>
 <p>As part of looking into a solution I came across the <a href="https://fishshell.com/docs/current/cmds/string.html">string</a> command. This was another awesome feature of Fish and I realized how useful Fish could be for scripting without having to resort to Python for advanced string manipulation.</p>
 <p>Now the command can be:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-fish" data-lang="fish"><span style="display:flex;"><span><span style="color:#a6e22e">sqlite3</span> /var/cache/dnf/packages.db <span style="color:#e6db74">&#34;SELECT pkg FROM available WHERE pkg LIKE \&#34;</span>$cur<span style="color:#e6db74">%\&#34;&#34;</span> <span style="color:#ae81ff">2</span><span style="color:#f92672">&gt;</span>/dev/null <span style="color:#f92672">|</span> <span style="color:#ae81ff">\
-</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>string replace <span style="color:#a6e22e">-r</span> <span style="color:#e6db74">&#34;.fc.*&#34;</span> <span style="color:#e6db74">&#34;&#34;</span> <span style="color:#f92672">|</span> string replace <span style="color:#a6e22e">-r</span> <span style="color:#e6db74">&#34;\-[0-9].*&#34;</span> <span style="color:#e6db74">&#34;&#34;</span>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fish" data-lang="fish"><span class="line"><span class="cl"><span class="nf">sqlite3</span> /var/cache/dnf/packages.db <span class="s2">&#34;SELECT pkg FROM available WHERE pkg LIKE \&#34;</span><span class="nv">$cur</span><span class="s2">%\&#34;&#34;</span> <span class="m">2</span><span class="o">&gt;</span>/dev/null <span class="o">|</span> <span class="se">\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span><span class="nb">string </span>replace <span class="na">-r</span> <span class="s2">&#34;.fc.*&#34;</span> <span class="s2">&#34;&#34;</span> <span class="o">|</span> <span class="nb">string </span>replace <span class="na">-r</span> <span class="s2">&#34;\-[0-9].*&#34;</span> <span class="s2">&#34;&#34;</span>
 </span></span></code></pre></div><p>In both cases we use the replace regex subcommand. First to remove the fedora release and architecture of the package. Then everything after the first instance of a dash (-) followed by a digit ([0-9]).</p>
 <p>Which results in a more minimal tab completion:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>$ dnf install dconf&lt;TAB&gt;&lt;TAB&gt;
-</span></span><span style="display:flex;"><span>dconf  dconf-devel  dconf-editor
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">$ dnf install dconf&lt;TAB&gt;&lt;TAB&gt;
+</span></span><span class="line"><span class="cl">dconf  dconf-devel  dconf-editor
 </span></span></code></pre></div><p>This is an issue for packages such as <code>gnome-2048</code>, but I&rsquo;m not to concerned.</p>
 <p>I am, however open to suggestions that can overcome this issue and properly separate the version from the package name.</p>
 
