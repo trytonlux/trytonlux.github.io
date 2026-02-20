@@ -2,8 +2,6 @@
 title = "About"
 +++
 
-Fan of Foss. Uses Linux. Canadian in Ottawa 🇨🇦.
-
 ## Software & Tools
 
 **Operating System** Fedora Workstation\
