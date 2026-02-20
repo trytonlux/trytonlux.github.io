@@ -1,3 +1,18 @@
 baseURL = "https://www.trytonlux.ca/"
 title = "Tryton"
 theme = "mana"
+
+[[menus.main]]
+name = 'Home'
+pageRef = '/'
+weight = 10
+
+[[menus.main]]
+name = 'Posts'
+pageRef = '/posts'
+weight = 20
+
+[[menus.main]]
+name = 'About'
+url = '/about/'
+weight = 30
