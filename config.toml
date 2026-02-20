@@ -36,3 +36,6 @@ lightTheme = "catppuccin-latte"
 
 [markup.highlight]
 style = "catppuccin-mocha"
+
+[pagination]
+pagerSize = 50
