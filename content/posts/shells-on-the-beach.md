@@ -20,9 +20,8 @@ Fish keeps all of its files in `~/.config/fish`, with no such file like `.bashrc
 
 Fish uses functions instead of aliases (The [alias](https://fishshell.com/docs/current/cmds/alias.html) command is a wrapper for the function builtin), and a neat feature of Fish is autoloading functions.
 
-<!-- <note>
-When fish encounters a command, it attempts to autoload a function for that command, by looking for a file with the name of that command in `~/.config/fish/functions`
-</note> -->
+> [!TIP]
+> When fish encounters a command, it attempts to autoload a function for that command, by looking for a file with the name of that command in `~/.config/fish/functions`
 
 So, I have a file for each of my functions or "aliases".
 
@@ -108,16 +107,12 @@ Did you figure out what the ocean theme was? The **Fish** shell, is an obvious o
 
 # Installing
 
-<!-- <table>
-
 | Package  | Fedora | Arch Linux | Ubuntu |
-| :------: | :----: | :--------: | :----: |
-|  tilix   |   ✓    |     ✓      |   ✓    |
-|   fish   |   ✓    |     ✓      |   ✓    |
-| starship |   ✓    |     ✓      |   x    |
-|   exa    |   ✓    |     ✓      |   ✓    |
-|   pydf   |   ✓    |     ✓      |   ✓    |
-|   bat    |   ✓    |     ✓      |   ✓    |
-|  micro   |   ✓    |     ✓      |   ✓    |
-
-</table> -->
+| -------- | ------ | ---------- | ------ |
+| tilix    | ✓      | ✓          | ✓      |
+| fish     | ✓      | ✓          | ✓      |
+| starship | ✓      | ✓          | x      |
+| exa      | ✓      | ✓          | ✓      |
+| pydf     | ✓      | ✓          | ✓      |
+| bat      | ✓      | ✓          | ✓      |
+| micro    | ✓      | ✓          | ✓      |

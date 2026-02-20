@@ -46,9 +46,8 @@ Some CLI tools are included:
 
 Various tweaks are made in the usual way of editing system files. The `airootfs` folder acts as an overlay and you can make these customizations here.
 
-<note tip>
-Any administrative task that you would do while following the installation guide (or after installation) can be scripted by editing `airootfs/root/customize_airootfs.sh`, except for package installation. The script is written from the perspective of the running live system, i.e. in the script the path / refers to the root of the running live system.
-</note>
+> [!TIP]
+> Any administrative task that you would do while following the installation guide (or after installation) can be scripted by editing `airootfs/root/customize_airootfs.sh`, except for package installation. The script is written from the perspective of the running live system, i.e. in the script the path / refers to the root of the running live system.
 
 In `customize_airootfs.sh`, I do things like adding the live user, enabling systemd units, and sed'ing configs.
 
@@ -74,9 +73,8 @@ pref("extensions.activeThemeID", "firefox-compact-dark@mozilla.org");
 
 The first line must be exactly "//". The syntax of the file is similar to `user.js`. I've also included the uBlock Origin extension by default.
 
-<note>
-Arch Wiki page for reference: <https://wiki.archlinux.org/index.php/Firefox#Configuration>
-</note>
+> [!NOTE]
+> Arch Wiki page for reference: <https://wiki.archlinux.org/index.php/Firefox#Configuration>
 
 # Dconf
 
@@ -100,9 +98,8 @@ You can use `dconf-editor` to find the keys you want to include in this file.
 
 I also run `dconf update` in `airootfs/root/customize_airootfs.sh` to update the system databases.
 
-<note>
-GNOME docs for reference: <https://help.gnome.org/admin/system-admin-guide/stable/dconf-custom-defaults.html>
-</note>
+> [!NOTE]
+> GNOME docs for reference: <https://help.gnome.org/admin/system-admin-guide/stable/dconf-custom-defaults.html>
 
 # Dotfiles
 
