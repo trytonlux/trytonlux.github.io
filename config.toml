@@ -27,3 +27,12 @@ email = "hello@trytonlux.ca"
 [params.copyright]
 startYear = 2018
 owner = "Tryton Lux"
+
+[params.codeHighlight]
+darkTheme = "catppuccin-mocha"
+lightTheme = "catppuccin-latte"
+
+[markup]
+
+[markup.highlight]
+style = "catppuccin-mocha"
