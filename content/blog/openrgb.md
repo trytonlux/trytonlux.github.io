@@ -27,10 +27,10 @@ WantedBy=graphical-session.target
 
 # Installing
 
-{{<table>}}
+<!-- <table>
 
 | Arch Linux  | Fedora  | Ubuntu |
 | :---------: | :-----: | :----: |
 | aur/openrgb | openrgb | **NA** |
 
-{{</table>}}
+</table> -->

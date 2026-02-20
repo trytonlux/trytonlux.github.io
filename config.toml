@@ -1,4 +1,3 @@
 baseURL = "https://www.trytonlux.ca/"
 title = "Tryton"
-languageCode = "en-us"
-pygmentsUseClasses = true
+theme = "mana"

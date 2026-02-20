@@ -116,7 +116,7 @@ This [link](# "Hi!") has a title.
 
 # Tables
 
-{{<table>}}
+<table>
 
 | Tag | Description |
 | --- | ----------- |
@@ -125,11 +125,11 @@ This [link](# "Hi!") has a title.
 | a   | Anchor      |
 | br  | Line break  |
 
-{{</table>}}
+</table>
 
 ## Centered
 
-{{<table>}}
+<table
 
 | Tag | Description |
 | :-: | :---------: |
@@ -138,28 +138,28 @@ This [link](# "Hi!") has a title.
 |  a  |   Anchor    |
 | br  | Line break  |
 
-{{</table>}}
+</table>
 
 # Notes
 
 ## Info
 
-{{<note>}}
+<note>
 This is an note.
-{{</note>}}
+</note>
 
 ## Tip
 
-{{<note tip>}}
+<note tip>
 This is a tip.
-{{</note>}}
+</note>
 
 ## Warning
 
-{{<note warning>}}
+<note warning>
 This is a warning.
-{{</note>}}
+</note>
 
 # Keyboard Shortcuts
 
-Press {{<key ctrl>}} + {{<key alt>}} + {{<key t>}} to open a terminal.
+Press <kbd> ctrl</kbd> + <kbd> alt</kbd> + <kbd> t</kbd> to open a terminal.
