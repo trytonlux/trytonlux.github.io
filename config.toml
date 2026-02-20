@@ -16,3 +16,7 @@ weight = 20
 name = 'About'
 url = '/about/'
 weight = 30
+
+[params.social]
+github = "https://github.com/trytonlux"
+email = "hello@trytonlux.ca"
