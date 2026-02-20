@@ -23,3 +23,7 @@ description = "Canadian who loves Linux and all things computers"
 [params.social]
 github = "https://github.com/trytonlux"
 email = "hello@trytonlux.ca"
+
+[params.copyright]
+startYear = 2018
+owner = "Tryton Lux"
