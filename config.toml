@@ -32,10 +32,11 @@ owner = "Tryton Lux"
 darkTheme = "catppuccin-mocha"
 lightTheme = "catppuccin-latte"
 
-[markup]
-
 [markup.highlight]
 style = "catppuccin-mocha"
+
+[markup.goldmark.extensions.extras.superscript]
+enable = true
 
 [pagination]
 pagerSize = 50

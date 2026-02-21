@@ -39,7 +39,7 @@ nothing wrong with a PC gamer owning and playing on a console. I myself own a 3D
 Let's deviate from 'Linux vs Windows' or 'PC vs Console' and focus
 on 'Linux vs Console'.
 
-Below is a table of the consoles from 7<sup>th</sup> and 8<sup>th</sup> generation with their respective number of exclusives and total number of games.
+Below is a table of the consoles from 7^th^ and 8^th^ generation with their respective number of exclusives and total number of games.
 
 | Console  | Exclusives | Total |
 | -------- | ---------- | ----- |
