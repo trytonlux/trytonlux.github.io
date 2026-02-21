@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Tryton</title>
-    <link>https://www.trytonlux.ca/</link>
-    <description>Recent content on Tryton</description>
+    <title>Posts on Tryton</title>
+    <link>https://www.trytonlux.ca/posts/</link>
+    <description>Recent content in Posts on Tryton</description>
     <generator>Hugo</generator>
     <language>en</language>
     <lastBuildDate>Fri, 16 Jun 2023 00:00:00 +0000</lastBuildDate>
-    <atom:link href="https://www.trytonlux.ca/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https://www.trytonlux.ca/posts/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>How I Got Into Linux</title>
       <link>https://www.trytonlux.ca/posts/how-i-got-into-linux/</link>
@@ -105,13 +105,6 @@
       <pubDate>Wed, 21 Feb 2018 00:00:00 +0000</pubDate>
       <guid>https://www.trytonlux.ca/posts/yes-i-am-a-linux-gamer/</guid>
       <description>&lt;p&gt;Linux is my platform of choice for not only daily computing, but also gaming.&#xA;And I am happy to say I enjoy it quite a lot.&lt;/p&gt;&#xA;&lt;h1 id=&#34;steam&#34;&gt;Steam&lt;/h1&gt;&#xA;&lt;p&gt;I might not be able to play all the latest AAA games, but I still have more games&#xA;to play than I have time. Since I stopped using Windows, I&amp;rsquo;ve also made a point to only buy games that support Linux.&lt;/p&gt;&#xA;&lt;p&gt;There are currently 416 games in my Steam library. 242 of those are on Linux; that&amp;rsquo;s&#xA;58%.&lt;/p&gt;</description>
-    </item>
-    <item>
-      <title>About</title>
-      <link>https://www.trytonlux.ca/about/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>https://www.trytonlux.ca/about/</guid>
-      <description>&lt;h2 id=&#34;software--tools&#34;&gt;Software &amp;amp; Tools&lt;/h2&gt;&#xA;&lt;p&gt;&lt;strong&gt;Operating System&lt;/strong&gt; Fedora Workstation&lt;br&gt;&#xA;&lt;strong&gt;Desktop Environment&lt;/strong&gt; GNOME&lt;br&gt;&#xA;&lt;strong&gt;Shell&lt;/strong&gt; Fish&lt;br&gt;&#xA;&lt;strong&gt;Font&lt;/strong&gt; Adwaita Mono&lt;br&gt;&#xA;&lt;strong&gt;Colour Scheme&lt;/strong&gt; Catppuccin Mocha&lt;br&gt;&#xA;&lt;strong&gt;Editor&lt;/strong&gt; VSCodium&lt;/p&gt;&#xA;&lt;h2 id=&#34;this-website&#34;&gt;This Website&lt;/h2&gt;&#xA;&lt;p&gt;Was built with &lt;a href=&#34;https://gohugo.io&#34;&gt;Hugo&lt;/a&gt; and uses the &lt;a href=&#34;https://github.com/Livour/hugo-mana-theme&#34;&gt;Mana&lt;/a&gt; theme with modifications. View the code &lt;a href=&#34;https://github.com/trytonlux/trytonlux.github.io&#34;&gt;here&lt;/a&gt;.&lt;/p&gt;</description>
     </item>
   </channel>
 </rss>
