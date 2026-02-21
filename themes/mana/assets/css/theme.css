@@ -14,12 +14,12 @@ html {
 }
 
 :root {
-  /* Nebula Glass Color Palette */
-  --bg-deep: #020617; /* Deep Midnight Blue */
-  --accent-primary: #b063e0; /* Primary Purple */
-  --accent-mid-purple: #c485f6; /* Mid Purple */
-  --accent-light-purple: #dbabff; /* Light Purple */
-  --accent-secondary: #00ffff; /* Cyber Cyan */
+  /* https://catppuccin.com/palette/ */
+  --bg-deep: #11111b;
+  --accent-primary: #cba6f7;
+  --accent-mid-purple: #cba6f7;
+  --accent-light-purple: #cba6f7;
+  --accent-secondary: #74c7ec;
   --glass-surface: rgba(255, 255, 255, 0.05);
   --glass-border: rgba(255, 255, 255, 0.1);
   --glass-block: rgb(255, 255, 255);
@@ -28,19 +28,19 @@ html {
   --bg-primary: var(--bg-deep);
   --bg-secondary: var(--glass-surface);
   --bg-tertiary: rgba(255, 255, 255, 0.08);
-  --text-primary: #f1f5f9;
-  --text-secondary: #cbd5e1;
-  --text-muted: #94a3b8;
-  --accent-hover: #c485f6;
+  --text-primary: #cdd6f4;
+  --text-secondary: #bac2de;
+  --text-muted: #a6adc8;
+  --accent-hover: #b4befe;
   --border-color: var(--glass-border);
   /* Dark theme rgba values for effects */
-  --accent-primary-rgba-03: rgba(176, 99, 224, 0.3);
+  --accent-primary-rgba-03: rgba(203, 166, 247, 0.3);
   --accent-primary-rgba-05: rgba(176, 99, 224, 0.5);
-  --accent-light-purple-rgba-01: rgba(219, 171, 255, 0.1);
-  --accent-light-purple-rgba-03: rgba(219, 171, 255, 0.3);
-  --accent-mid-purple-rgba-05: rgba(196, 133, 246, 0.05);
-  --accent-mid-purple-rgba-01: rgba(196, 133, 246, 0.1);
-  --accent-mid-purple-rgba-02: rgba(196, 133, 246, 0.2);
+  --accent-light-purple-rgba-01: rgba(203, 166, 247, 0.1);
+  --accent-light-purple-rgba-03: rgba(203, 166, 247, 0.3);
+  --accent-mid-purple-rgba-05: rgba(203, 166, 247, 0.05);
+  --accent-mid-purple-rgba-01: rgba(203, 166, 247, 0.1);
+  --accent-mid-purple-rgba-02: rgba(203, 166, 247, 0.2);
   /* Tag styling for dark theme */
   --tag-bg: rgba(0, 0, 0, 0.4);
   --tag-color: var(--accent-light-purple);
@@ -49,8 +49,8 @@ html {
   --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.5);
 
   /* Scroll to top & Buy Me a Coffee */
-  --yellow-accent: #ffdd00;
-  --yellow-hover: #ffc700;
+  --yellow-accent: #f9e2af;
+  --yellow-hover: #fab387;
 
   /* Spacing */
   --spacing-xs: 0.25rem;
@@ -60,18 +60,11 @@ html {
   --spacing-xl: 2rem;
   --spacing-2xl: 3rem;
 
-  /* Typography - Nebula Glass Theme */
-  --font-heading:
-    "Space Grotesk", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-  --font-body:
-    "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
-    "Helvetica Neue", Arial, sans-serif;
-  --font-logo:
-    "Outfit", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  --font-heading: var(--font-body);
+  --font-body: "Adwaita Sans", sans-serif;
+  --font-logo: var(--font-body);
   --font-sans: var(--font-body); /* Legacy support */
-  --font-mono:
-    "JetBrains Mono", ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas,
-    "Liberation Mono", "Courier New", monospace;
+  --font-mono: "Adwaita Mono", "JetBrains Mono", "Liberation Mono", "Courier New", monospace;
 
   /* Transitions */
   --transition-fast: 150ms ease-in-out;
@@ -85,7 +78,7 @@ html {
 }
 
 [data-theme="light"] {
-  --bg-primary: #ffffff;
+  --bg-primary: #dce0e8;
   /* Light theme glassmorphism - minimal white overlay, backdrop blur creates the glassy effect */
   --glass-surface: rgba(
     255,
@@ -107,15 +100,15 @@ html {
     255,
     0.25
   ); /* Slightly more visible for tertiary surfaces */
-  --text-primary: #0f172a;
-  --text-secondary: #475569;
-  --text-muted: #64748b;
+  --text-primary: #4c4f69;
+  --text-secondary: #5c5f77;
+  --text-muted: #6c6f85;
   /* Light theme purple palette - much darker, more saturated for contrast on light backgrounds */
-  --accent-primary: #6b21a8; /* Very dark purple for primary */
-  --accent-mid-purple: #7c3aed; /* Dark purple for mid */
-  --accent-light-purple: #9333ea; /* Medium-dark purple for light accent */
-  --accent-secondary: #7e22ce;
-  --accent-hover: #7c3aed;
+  --accent-primary: #8839ef; /* Very dark purple for primary */
+  --accent-mid-purple: #8839ef; /* Dark purple for mid */
+  --accent-light-purple: #8839ef; /* Medium-dark purple for light accent */
+  --accent-secondary: ##209fb5;
+  --accent-hover: #7287fd;
   --border-color: var(--glass-border);
   /* Light theme rgba values for effects - darker purples for better contrast */
   --accent-primary-rgba-03: rgba(107, 33, 168, 0.3);
@@ -159,11 +152,11 @@ body {
 
 /* Light theme background */
 [data-theme="light"] {
-  --bg-deep: #ffffff; /* Override bg-deep for light theme */
+  --bg-deep: #dce0e8; /* Override bg-deep for light theme */
 }
 
 [data-theme="light"] body {
-  background-color: #ffffff;
+  background-color: #dce0e8;
   /* Light theme radial gradient: subtle purple/lavender tint in center, fading to white at edges */
   background-image: radial-gradient(
     circle at center,
