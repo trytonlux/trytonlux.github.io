@@ -2,6 +2,8 @@
 title = "About"
 +++
 
+Resume can be found [here](https://github.com/trytonlux/Resume/releases/latest/download/Tryton_Lux_CV.pdf).
+
 ## Software & Tools
 
 **Operating System** Fedora Workstation\
