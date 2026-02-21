@@ -1,4 +1,42 @@
 baseURL = "https://www.trytonlux.ca/"
 title = "Tryton"
-languageCode = "en-us"
-pygmentsUseClasses = true
+theme = "mana"
+
+[[menus.main]]
+name = 'Home'
+pageRef = '/'
+weight = 10
+
+[[menus.main]]
+name = 'Posts'
+pageRef = '/posts'
+weight = 20
+
+[[menus.main]]
+name = 'About'
+url = '/about/'
+weight = 30
+
+[params]
+description = "Canadian who loves Linux and all things computers"
+
+[params.social]
+github = "https://github.com/trytonlux"
+email = "hello@trytonlux.ca"
+
+[params.copyright]
+startYear = 2018
+owner = "Tryton Lux"
+
+[params.codeHighlight]
+darkTheme = "catppuccin-mocha"
+lightTheme = "catppuccin-latte"
+
+[markup.highlight]
+style = "catppuccin-mocha"
+
+[markup.goldmark.extensions.extras.superscript]
+enable = true
+
+[pagination]
+pagerSize = 50

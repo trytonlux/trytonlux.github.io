@@ -1,14 +1,4 @@
-body {
-  display: flex;
-  min-height: 100vh;
-  flex-direction: column;
-
-  main {
-    flex: 1;
-  }
-}
-
-kbd {
+/* kbd {
   color: #555;
   background: #eee;
   font-family: monospace;
@@ -19,33 +9,5 @@ kbd {
   border-radius: 3px;
   box-shadow: 1px 1px 1px #777;
   vertical-align: text-bottom;
-}
+} */
 
-.navbar-item {
-  line-height: 1;
-}
-
-.navbar-menu.is-active {
-  position: absolute;
-  width: 100%;
-  background-color: var(--bulma-scheme-main-bis);
-}
-
-.not-found {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  font-size: 3rem;
-
-  :nth-child(1) {
-    color: var(--bulma-danger);
-  }
-}
-
-.highlight {
-  margin-bottom: 1rem;
-
-  .chroma {
-    border-radius: 4px;
-  }
-}
