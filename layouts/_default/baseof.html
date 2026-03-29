@@ -1,0 +1,36 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="color-scheme" content="light dark">
+
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@picocss/pico@2/css/pico.min.css">
+
+  <title>{{ .Title }}</title>
+</head>
+
+<body>
+  <nav class="container">
+    <ul>
+      <li><strong>{{ .Title }}</strong></li>
+    </ul>
+    <ul>
+      <li><a href="/">Home</a></li>
+      <li><a href="/posts">Posts</a></li>
+      <li><a href="/about">About</a></li>
+    </ul>
+  </nav>
+
+  <main class="container">
+    {{ block "main" . }} {{ end }}
+  </main>
+
+  <footer class="container">
+    <p>© 2018 Tryton Lux, CC BY-SA 4.0</p>
+    <p>GitHub / Email</p>
+  </footer>
+</body>
+
+</html>

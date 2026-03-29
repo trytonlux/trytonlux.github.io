@@ -1,0 +1,11 @@
+{{ $page := . }}
+
+<article>
+  <header>{{ .Title }}</header>
+  {{ if .Description }}
+  <p>{{ .Description }}</p>
+  {{ else if .Summary }}
+  <p>{{ .Summary | truncate 150 }}</p>
+  {{ end }}
+  <footer>🗓️ {{ .Date.Format "January 1, 2006" }}</footer>
+</article>
