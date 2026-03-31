@@ -1,0 +1,25 @@
+{{ $emojis := dict
+"note" "ℹ️"
+"tip" "💡"
+"important" "❗"
+"warning" "⚠️"
+}}
+
+{{ $colours := dict
+"note" "blue-500"
+"tip" "jade-500"
+"important" "red-700"
+"warning" "amber-300"
+}}
+
+{{ if not (eq .AlertType "") }}
+<article>
+  <header class="pico-background-{{ index $colours .AlertType }}" aria-label="{{ .AlertType }}">
+    {{ index $emojis .AlertType }}
+  </header>
+
+  {{ .Text }}
+</article>
+{{ else }}
+<blockquote>{{ .Text }}</blockquote>
+{{ end }}
