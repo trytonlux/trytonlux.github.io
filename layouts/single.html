@@ -1,15 +1,6 @@
 {{ define "main" }}
 
-<section>
-  <h1>{{ .Page.Title }}</h1>
-
-  {{ partial "post-date.html" .Date}}
-</section>
-
-<hr>
-
-<section>
-  {{ .Content }}
-</section>
+<h1>{{ .Title }}</h1>
+{{ .Content }}
 
 {{ end }}
