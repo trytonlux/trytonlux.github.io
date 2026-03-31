@@ -1,7 +1,9 @@
 {{ $page := . }}
 
 <article>
-  <header>{{ .Title }}</header>
+  <header>
+    <a href="{{ $page.RelPermalink }}">{{ .Title }}</a>
+  </header>
   {{ if .Description }}
   <p>{{ .Description }}</p>
   {{ else if .Summary }}
