@@ -6,8 +6,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="color-scheme" content="light dark">
 
-  {{ $picoCss := resources.Get "vendor/pico.min.css" | minify | fingerprint }}
-  {{ $picoColourCss := resources.Get "vendor/pico.colors.min.css" | minify | fingerprint }}
+  {{ $picoCss := resources.Get "vendor/pico.min.css" | fingerprint }}
+  {{ $picoColourCss := resources.Get "vendor/pico.colors.min.css" | fingerprint }}
   {{ $styleCss := resources.Get "style.css" | minify | fingerprint }}
 
   <link rel="stylesheet" href="{{ $picoCss.RelPermalink }}" integrity="{{ $picoCss.Data.Integrity }}">
