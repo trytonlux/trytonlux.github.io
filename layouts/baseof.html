@@ -8,6 +8,9 @@
 
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@picocss/pico@2/css/pico.min.css">
 
+  {{ $styleCSS := resources.Get "style.css" | minify | fingerprint }}
+  <link rel="stylesheet" href="{{ $styleCSS.RelPermalink }}" integrity="{{ $styleCSS.Data.Integrity }}">
+
   <title>{{ .Title }}</title>
 </head>
 

@@ -1,0 +1,7 @@
+:root,
+:host {
+  --pico-font-family-emoji: "Noto Color Emoji", "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+  --pico-font-family-sans-serif: "Adwaita Sans", sans-serif, var(--pico-font-family-emoji);
+  --pico-font-family-monospace: "Adwaita Mono", monospace, var(--pico-font-family-emoji);
+  --pico-font-family: var(--pico-font-family-sans-serif);
+}
