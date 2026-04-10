@@ -1,0 +1,9 @@
+<span><a href="{{ .RelPermalink }}">{{ .Title }}</a></span>
+
+{{ partial "post-date.html" .Date}}
+
+{{ if .Description }}
+<span>{{ .Description }}</span>
+{{ else if .Summary }}
+<span>{{ .Summary | truncate 150 }}</span>
+{{ end }}

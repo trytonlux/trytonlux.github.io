@@ -9,7 +9,8 @@
   <h2>Recent Posts</h2>
 
   {{ range where site.RegularPages "Type" "posts" | first 5 }}
-    {{ partial "post-card.html" . }}
+  {{ partial "post-card.html" . }}
+  <hr>
   {{ end }}
 </section>
 
