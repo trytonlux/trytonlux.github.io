@@ -1,5 +1,5 @@
 baseURL = "https://www.trytonlux.ca/"
-title = "Tryton"
+title = "Home"
 
 [markup.highlight]
 style = "catppuccin-mocha"
