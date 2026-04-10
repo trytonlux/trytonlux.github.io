@@ -1,8 +1,21 @@
+{{ $links := slice
+(dict "name" "Home" "href" "/")
+(dict "name" "Posts" "href" "/posts")
+(dict "name" "About" "href" "/about")
+}}
+
+{{ $currentPage := .Title }}
+
 <nav class="container">
   <ul>
-    <li><a class="contrast" href="/">Home</a></li>
-    <li><a class="contrast" href="/posts">Posts</a></li>
-    <li><a class="contrast" href="/about">About</a></li>
+    {{ range $links }}
+    {{ if eq $currentPage .name }}
+    <li><a class="contrast" href="{{ .href }}">{{ .name }}</a></li>
+    {{ else }}
+    <li><a class="secondary" href="{{ .href }}">{{ .name }}</a></li>
+    {{ end }}
+    {{ end }}
+
     <li><a class="secondary" href="https://github.com/trytonlux">GitHub</a></li>
     <li><a class="secondary" href="mailto:hello@trytonlux.ca">Email</a></li>
   </ul>
