@@ -25,3 +25,7 @@
 nav {
   justify-content: end;
 }
+
+.center-text {
+  text-align: center;
+}
